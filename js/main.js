@@ -25,53 +25,39 @@ console.dir(ev);
 })
 
 
-document.querySelector(".red").addEventListener('click', function(ev){
-    document.querySelector('body').setAttribute('class', "redBack");
-})
+// document.querySelector(".red").addEventListener('click', function(ev){
+//     document.querySelector('body').setAttribute('class', "redBack");
+// })
 
-document.querySelector(".green").addEventListener('click', function(ev){
-    document.querySelector('body').setAttribute('class', "greenBack");
-})
+// document.querySelector(".green").addEventListener('click', function(ev){
+//     document.querySelector('body').setAttribute('class', "greenBack");
+// })
 
-document.querySelector(".blue").addEventListener('click', function(ev){
-    document.querySelector('body').setAttribute('class', "blueBack")
-})
+// document.querySelector(".blue").addEventListener('click', function(ev){
+//     document.querySelector('body').setAttribute('class', "blueBack")
+// })
 
-document.querySelector(".reset").addEventListener('click', function(ev){
-    document.querySelector('body').setAttribute('class', "colPicker")
-})
+// document.querySelector(".reset").addEventListener('click', function(ev){
+//     document.querySelector('body').setAttribute('class', "colPicker")
+// })
+
+let colourButtons = document.querySelectorAll(".colPicker");
+console.dir(colourButtons);
+
+for (let i = 0; i < colourButtons.length; i++) {
+  colourButtons[i].addEventListener("click", chgColour);
+}
+
+function chgColour(ev) {
+  console.dir(ev.target.classList);
+  console.dir(ev.target.classList[0]);
+  let colourPicked = ev.target.classList[0] + "Back";
+  let bodyElement = document.body;
+  if (colourPicked === "resetBack") {
+    bodyElement.removeAttribute("class");
+  } else {
+    bodyElement.setAttribute("class", colourPicked);
+  }
+}
 
 document.getElementById("myImages").addEventListener('click', chgImage)
-
-
-convertForm.addEventListener('submit', function(ev){
-    ev.preventDefault();
-})
-    
-document.getElementById('pounds').value;
-
-priceEuros = 0;
-exchangeRate = 0.87;
-pricePounds = parseFloat(document.getElementById('pounds').value)
-
-if(isNaN(pricePounds)){
-    msg.style.display = "block";
-    msg.innerHTML = "You must enter a number";
-    msg.setAttribute('class', 'error');
-}
-else{
-    priceEuros = pricePounds * exchangeRate;
-    msg.style.display = "block";
-    priceEuros = priceEuros.toFixed(2);
-    msg.innerHTML = "You will get &euro;"+priceEuros;
-    msg.removeAttribute('class');
-}
-
-document.getElementById('pounds').addEventListener('focus', function(ev){
-    ev.target.value = "";
-    msg.innerHTML = "";
-    msg.removeAttribute('class');
-})
-
-
-    
