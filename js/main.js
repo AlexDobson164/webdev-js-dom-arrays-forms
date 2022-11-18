@@ -72,4 +72,6 @@ document.getElementById('pounds').addEventListener('focus', function(ev){
     msg.innerHTML = "";
     msg.removeAttribute('class');
 })
+
+
     
