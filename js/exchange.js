@@ -1,23 +1,40 @@
-let pricePounds;
-let exchangeRate = 1.15;
-let priceEuros;
+let originalAmount;
+let exchangeRateToEuro = 1.15;
+let exchangeRateToPound = 0.87
+let exchangedAmount;
+let buttonType;
+const conversionBtns = document.querySelectorAll("input[type=submit]");
 
 let convertForm = document.getElementById('myForm');
 let msg = document.getElementById('msg');
 
 convertForm.addEventListener('submit', function(ev){
     ev.preventDefault();
-    pricePounds = parseFloat(document.getElementById('pounds').value);
-    if(isNaN(pricePounds)){
+    conversionBtns.forEach(function (button) {
+        button.addEventListener("click", function (ev) {
+            console.log(ev.target.id)
+            buttonType = ev.target.id;
+
+        });
+    });
+    originalAmount = parseFloat(document.getElementById('money').value);
+    if(isNaN(originalAmount)){
         msg.style.display = "block";
         msg.innerHTML = "You must enter a number";
         msg.setAttribute('class', 'error');
     }
+    
     else{
-        priceEuros = pricePounds * exchangeRate;
         msg.style.display = "block";
-    priceEuros = priceEuros.toFixed(2);
-    msg.innerHTML = "You will get &euro;"+priceEuros;
-    msg.removeAttribute('class');
+        console.log(buttonType);
+        if (buttonType == "toEuro"){
+            exchangedAmount = originalAmount * exchangeRateToEuro;
+        }
+        if (buttonType == "toPounds"){
+            exchangedAmount = originalAmount * exchangeRateToPound;
+        }
+        exchangedAmount = exchangedAmount.toFixed(2);
+        msg.innerHTML = "You will get &euro;"+exchangedAmount;
+        msg.removeAttribute('class');
     }
 })

@@ -16,13 +16,7 @@ document.getElementById('myImages').setAttribute('src', imageAr[0]);
 setInterval(chgImage, 4000);
 
 
-console.info(document.getElementById("myHeading").innerHTML);
-document.getElementById('myHeading').innerHTML = "Your Name";
-document.querySelector('nav ul li').setAttribute('class', 'currentPage');
-document.getElementById('myTestEvent').addEventListener('click',
-function(ev){
-console.dir(ev);
-})
+
 
 
 // document.querySelector(".red").addEventListener('click', function(ev){

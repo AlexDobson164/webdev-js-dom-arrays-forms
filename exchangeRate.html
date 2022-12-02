@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pounds to Euros</title>
+  <title>Exchange Rate Calculator</title>
   <link rel="stylesheet" type="text/css" href="css/mobile.css">
   <link rel="stylesheet" media="only screen and (min-width:720px)" href="css/desktop.css">
 
@@ -22,16 +22,19 @@
         </ul>
       </nav>
       <div class="content">
-        <h2>Convert Pounds to Euros</h2>
+        <h2>Convert Pounds to Euros/Euros to pounds</h2>
         <section>
         <div>
           <form id="myForm">
             <p>
-              <label for="pounds">Enter Pounds:</label>
-              <input type="text" id="pounds">
+              <label for="money">Enter Amount of Money:</label>
+              <input type="text" id="money">
             </p>
             <p class="submitBtn">
-              <input type="submit" value="Convert to Euros">
+              <input type="submit" id="toEuro" value="Convert to Euros">
+            </p>
+            <p class="submitBtn">
+              <input type="submit" id="toPounds" value="Convert to Pounds">
             </p>
           </form>
         </div>
@@ -46,7 +49,7 @@
       &copy; 2020 mustbebuilt
     </footer>
   </div>
-<script src="js/main.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/exchange.js"></script>
 </body>
 </html>
